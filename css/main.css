@@ -1,0 +1,738 @@
+@charset "utf-8";
+
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/lato-v16-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('../fonts/lato-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lato-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lato-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/lato-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lato-v16-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+}
+
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/lato-v16-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Lato Bold'), local('Lato-Bold'),
+       url('../fonts/lato-v16-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lato-v16-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lato-v16-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/lato-v16-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lato-v16-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font: 1rem Lato, sans-serif;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+input[id*="checker"] {
+    display: none;
+}
+
+/* --------------------------------------------*/
+/* mobil ------------------------------------*/
+/* --------------------------------------------*/ 
+@media screen and (max-width:600px){
+
+    /*meine Grundeinstellungen*/
+    #all {
+        max-width: 600px;
+        background: rgba(216,216,216,1.00);
+    }
+    h3 {
+        padding-top: 1%;
+        padding-bottom: 1%;
+        display: block;
+        text-align: center;
+    }
+    #beschreibung, #jahreszeiten, #jahreszeitenkalender, #lieblingszeit, #fangDenSchneemann {
+        background: rgba(162,162,162,1.00);
+    }
+    p {
+        padding: 5px;
+    }
+
+    /*header---------------------*/
+    header > h1 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        color: #fff;
+        line-height: 45px;
+        font-size: 2rem;
+        padding-left: 5px;
+        padding-right: 45px;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+    }
+    header > h1 > br {
+        display: none;
+    }
+    header > img {
+        margin-top: 45px;
+        display: block;
+    }
+    
+    /*topnav---------------------*/
+    #topnav {
+        position: fixed;
+        top: 45px;
+        right: -150px;
+        width: 150px;
+        z-index: 100;
+        transition: 0.5s;
+    }
+    #navchecker:checked ~ #topnav {
+        right: 0;
+    }
+    #topnav > ul {
+        list-style: none;
+    }
+    #topnav > ul > li > a {
+        display: block;
+        text-decoration: none;
+        color:#fff;
+        border-top: 1px solid;
+        line-height: 45px;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+        padding-left: 5px;
+    }
+    #topnav > ul > li > a:hover {
+        background: #fff;
+        color: #000;
+    }
+    
+    /*topnav ---- Ani - Burger - Button*/
+    label[for="navchecker"]{
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(rgba(12,38,163,0.00), rgba(146,163,247,0.00));
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+    .line {
+        position: absolute;
+        left: 15%;
+        width: 70%;
+        height: 2px;
+        background: #fff;
+        transition: 1s 0.5s;
+    }
+    .line:nth-of-type(1) {top: 30%;}
+    .line:nth-of-type(2) {top: 50%;}
+    .line:nth-of-type(3) {top: 70%;}
+
+    #navchecker:checked ~ #topnav .line:nth-of-type(1) {
+        transform: translateY(9px) rotate(405deg);
+    }
+    #navchecker:checked ~ #topnav .line:nth-of-type(2) {
+        transform: rotate(405deg);
+    }
+    #navchecker:checked ~ #topnav .line:nth-of-type(3) {
+        transform: translateY(-9px) rotate(-405deg);
+    }
+    
+    /*nav für Impressum und Datenschutz*/
+    .home {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    .home ul {
+        max-width: 1200px;
+        margin: auto;
+        list-style: none;
+    }
+    .home > ul > li > a {
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        color:#fff;
+        border-right: 1px solid;
+        line-height: 45px;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+    }
+    .home > ul > li > a:hover {
+        background: linear-gradient(rgba(146,163,247,1.00), rgba(12,38,163,1.00));
+    }
+    
+    /*main ---------------------------*/
+    main {
+        display: block;
+    }
+    
+    /*Abschnitt Jahreszeiten ----------------------*/
+    .imgText5050 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .imgText5050 > div {
+        flex-basis: 400px;
+        flex-grow: 1;
+        border-bottom: 1px solid #000;
+    }
+    .imgText5050 img {
+        width: 100%;
+        display: block;
+    }
+    .jahreszeitenNamen {
+        text-decoration: underline;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /*Abschnitt Jahreszeitenkalender ----------------------*/
+    .download {
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
+    /*Abschnitt Jahreszeitenkalender - Accordion ---------------------*/
+    input[name="accordion"] {
+        display: none;
+    }
+    #uebersicht1, #uebersicht2, #uebersicht3, #uebersicht4 {
+        line-height: 0rem;
+        overflow: hidden;
+        opacity: 0;
+    }
+    .jahreszeitenkalender > h4 {
+        color: #fff;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+        line-height: 2rem;
+        padding-left: 5px;
+    }
+    .jahreszeitenkalender > h4 > label {
+        display: block;
+    }
+    #fruehling:checked ~ #uebersicht1, #sommer:checked ~ #uebersicht2, #herbst:checked ~ #uebersicht3, #winter:checked ~ #uebersicht4 {
+        line-height: 1rem;
+        opacity: 1;
+    }
+
+    /*Abschnitt Jahreszeitenkalender - Tabellen im Accordion ----------------*/
+    .row1, .row2, .row3, .row4 {
+		background: #fafafa;
+	}
+	.row1:first-of-type, .row2:first-of-type, .row3:first-of-type, .row4:first-of-type {
+		display: none;
+	}
+	.row1:nth-of-type(even), .row2:nth-of-type(even), .row3:nth-of-type(even), .row4:nth-of-type(even) { 
+		background: #eee;
+	}
+
+	#fruehling:checked ~ #uebersicht1 .cell1, #sommer:checked ~ #uebersicht2 .cell2, #herbst:checked ~ #uebersicht3 .cell3, #winter:checked ~ #uebersicht4 .cell4 {
+		padding: 5px;
+	}
+	.cell1:nth-of-type(1):before {content:"Monatszahl: ";}
+	.cell2:nth-of-type(1):before {content:"Monatszahl: ";}
+    .cell3:nth-of-type(1):before {content:"Monatszahl: ";}
+    .cell4:nth-of-type(1):before {content:"Monatszahl: ";}
+    
+	.cell1:nth-of-type(2):before {content:"Bezeichnung: ";}
+	.cell2:nth-of-type(2):before {content:"Bezeichnung: ";}
+    .cell3:nth-of-type(2):before {content:"Bezeichnung: ";}
+    .cell4:nth-of-type(2):before {content:"Bezeichnung: ";}
+    
+	.cell1:nth-of-type(3):before {content:"Designation: ";}
+	.cell2:nth-of-type(3):before {content:"Designation: ";}
+    .cell3:nth-of-type(3):before {content:"Designation: ";}
+    .cell4:nth-of-type(3):before {content:"Designation: ";}
+	
+    .cell1:before, .cell2:before, .cell3:before, .cell4:before {
+		font-weight: bold;
+	}
+    
+    /*Abschnitt Footer----------------*/
+    footer {
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+    }
+    footer > div {
+        line-height: 30px;
+        color: #fff;
+        text-align: center;
+    }
+    footer > div:nth-of-type(2) {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+    }
+    footer a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /*Einstellungen Impressum*/
+    .impressum h1 {
+        margin-top: 45px;
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    /*Einstellungen Datenschutz*/
+    .datenschutz h1 {
+        margin-top: 45px;
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    /*Einstellungen Cookies*/
+    #cookiedingsbums { 
+        position: fixed;
+        bottom: 92px;
+        left: 0;
+        z-index: 10000; 
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+        max-width: 400px;
+        filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#d6e0eb', endColorstr='#f2f6f9',GradientType=0 );
+    }
+    #cookiedingsbums > p:first-of-type {
+        color: #fff;
+        padding-right: 40px;
+        line-height: 1.2rem;
+        
+    }
+    #cookiedingsbums > p:nth-of-type(2) {
+        padding-right: 40px;
+        line-height: 1.2rem;
+    }
+    #cookiedingsbums > p > a {
+        color:#fff;
+        text-decoration:none;
+    }
+    #cookiedingsbums > p > a:hover {
+        text-decoration:underline;
+    }
+    #cookiedingsbumsCloser {
+        color: #000;
+        position: absolute;
+        right: 5px;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #fff;
+        top: 5px;
+        cursor:pointer;
+        border-top: 1px solid white; 
+        border-left: 1px solid white; 
+        border-bottom: 1px solid #7b92a9; 
+        border-right: 1px solid #7b92a9;
+        background: rgba(20,233,18,1.00);
+        filter: progid:DXImageTransform.Microsoft.gradient(    startColorstr='#ced6df', endColorstr='#f2f6f9',GradientType=0 ); 
+     }
+    #cookiedingsbumsCloser:hover {
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+        border-top: 1px solid #7b92a9;
+        border-left:1px solid #7b92a9;
+    }
+
+    /* frei Klassen -------------------*/
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .nomobile {
+        display: none;
+    }
+}
+
+/* --------------------------------------------*/
+/* desktop ------------------------------------*/
+/* --------------------------------------------*/ 
+@media screen and (min-width:601px){
+
+    /*meine Grundeinstellungen*/
+    body {
+        background: rgba(233,233,233,1.00);
+    }
+    #all {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(216,216,216,1.00);
+    }
+    h3 {
+        padding-top: 1%;
+        padding-bottom: 1%;
+        display: block;
+        text-align: center;
+    }
+    #beschreibung, #jahreszeiten, #jahreszeitenkalender, #lieblingszeit, #fangDenSchneemann {
+        background: rgba(162,162,162,1.00);
+    }
+    p {
+        padding: 5px;
+    }
+
+    /*header---------------------*/
+    header {
+        position: relative;
+    }
+    header > h1 {
+        position: absolute;
+        top: 2%;
+        right: 5%;
+        color: #fff;
+        font-size: 2rem;
+    }
+    header > img {
+        display: block;
+    }
+
+    /*topnav---------------------*/
+    #topnav > ul {
+        display: flex;
+        list-style: none;
+    }
+    #topnav > ul > li {
+        flex-basis: 20%;
+    }
+    #topnav > ul > li > a {
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        color:#fff;
+        border-right: 1px solid;
+        line-height: 45px;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+    }
+    #topnav > ul > li > a:hover {
+        background: linear-gradient(rgba(146,163,247,1.00), rgba(12,38,163,1.00));
+    }
+    #topnav >ul > li:last-of-type a {
+        border:none;
+    }
+
+    /* Anpassung für Sticky-Menu -----------------------*/
+    .sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    .sticky ul {
+        max-width: 1200px;
+        margin: auto;
+    }
+    .sticky + main > .beschreibung {
+        margin-top: 45px;
+    }
+
+    
+    /*nav für Impressum und Datenschutz*/
+    .home {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    .home ul {
+        max-width: 1200px;
+        margin: auto;
+        list-style: none;
+    }
+    .home > ul > li > a {
+        text-align: center;
+        display: block;
+        text-decoration: none;
+        color:#fff;
+        border-right: 1px solid;
+        line-height: 45px;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+    }
+    .home > ul > li > a:hover {
+        background: linear-gradient(rgba(146,163,247,1.00), rgba(12,38,163,1.00));
+    }
+    
+    /*main ---------------------------*/
+    main {
+        display: block;
+    }
+    
+    /*Abschnitt Jahreszeiten ----------------------*/
+    .imgText5050 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .imgText5050 > div {
+        flex-basis: 400px;
+        flex-grow: 1;
+        border-bottom: 1px solid #000;
+    }
+    .imgText5050 img {
+        width: 100%;
+        display: block;
+    }
+    .jahreszeitenNamen {
+        text-decoration: underline;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /*Abschnitt Jahreszeitenkalender ----------------------*/
+    .download {
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+    }
+    /*Abschnitt Jahreszeitenkalender - Accordion ---------------------*/
+    input[name="accordion"] {
+        display: none;
+    }
+    #uebersicht1, #uebersicht2, #uebersicht3, #uebersicht4 {
+        line-height: 0rem;
+        overflow: hidden;
+        opacity: 0;
+    }
+    .jahreszeitenkalender > h4 {
+        color: #fff;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+        line-height: 2rem;
+        padding-left: 5px;
+    }
+    .jahreszeitenkalender > h4 > label {
+        display: block;
+    }
+    #fruehling:checked ~ #uebersicht1, #sommer:checked ~ #uebersicht2, #herbst:checked ~ #uebersicht3, #winter:checked ~ #uebersicht4 {
+        line-height: 1rem;
+        opacity: 1;
+    }
+
+    /*Abschnitt Jahreszeitenkalender - Tabellen im Accordion ----------------*/
+    #fruehling:checked ~ #uebersicht1, #sommer:checked ~ #uebersicht2, #herbst:checked ~ #uebersicht3, #winter:checked ~ #uebersicht4 {
+        display: table;
+        border-spacing: 0; 
+        width: 100%;
+    }
+    #fruehling:checked ~ #uebersicht1 .row1, #sommer:checked ~ #uebersicht2 .row2, #herbst:checked ~ #uebersicht3 .row3, #winter:checked ~ #uebersicht4 .row4 {
+        display: table-row;
+    }
+    #fruehling:checked ~ #uebersicht1 .cell1, #sommer:checked ~ #uebersicht2 .cell2, #herbst:checked ~ #uebersicht3 .cell3, #winter:checked ~ #uebersicht4 .cell4 {
+        display: table-cell;
+        background: #ccc;
+        border: 1px solid #fff;
+        padding: 0.2em 1.5em;
+    }
+    #fruehling:checked ~ #uebersicht1 .row1:first-of-type .cell1, #sommer:checked ~ #uebersicht2 .row2:first-of-type .cell2, #herbst:checked ~ #uebersicht3 .row3:first-of-type .cell3, #winter:checked ~ #uebersicht4 .row4:first-of-type .cell4 {
+        background-color: darkolivegreen;
+        color: #ddd;
+        border: 1px solid #fff;
+        padding: 0.2em 1.5em;
+        font-weight: bold;
+    }
+    #fruehling:checked ~ #uebersicht1 .row1:nth-of-type(even) .cell1, #sommer:checked ~ #uebersicht2 .row2:nth-of-type(even) .cell2, #herbst:checked ~ #uebersicht3 .row3:nth-of-type(even) .cell3, #winter:checked ~ #uebersicht4 .row4:nth-of-type(even) .cell4 { 
+        background: #eee;
+    }
+    
+    /*Abschnitt Spiel*/
+    #starteTraining {
+        display: block;
+        line-height: 2rem;
+        padding: 0 4px;
+        margin: 5px auto;
+    }
+    #spielflaeche {
+        position: relative;
+        overflow: hidden;
+    }
+    #spielflaeche > div:first-of-type {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        color: #fff;
+    }
+    #spielflaeche img {
+        display: block;
+    }
+    #spielflaeche img:nth-of-type(2) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 20;
+    }
+    #spielflaeche img:nth-of-type(3) {
+        position: absolute;
+        top: 45%;
+        left: 13%;
+        z-index: 10;
+        max-width: 4%;
+    }
+    #spielflaeche img:nth-of-type(4) {
+        position: absolute;
+        bottom: -16%;
+        left: 65%;
+        z-index: 30;
+        max-width: 4%;
+    }
+    #spielflaeche img:nth-of-type(5) {
+        position: absolute;
+        bottom: -16%;
+        left: 30%;
+        z-index: 30;
+        max-width: 4%;
+    }
+    #spielflaeche img:nth-of-type(6) {
+        position: absolute;
+        top: 45%;
+        left: 85%;
+        z-index: 10;
+        max-width: 4%;
+    }
+    #spielflaeche > div:last-of-type {
+        position: absolute;
+        bottom: 5%;
+        left: 40%;
+        max-width: 20%;
+        z-index: 40;
+        text-align: center;
+    }
+    #siegtext {
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+        color: #fff;
+        padding: 0;
+    }
+    .schneemannani {
+        animation-name: run;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-delay: 0s;
+    }
+    
+    /*Abschnitt Footer----------------*/
+    footer {
+        display: flex;
+        justify-content: space-between;
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    footer > div {
+        flex-basis: 200px;
+        flex-grow: 1;
+        line-height: 30px;
+        color: #fff;
+    }
+    footer > div:nth-of-type(2) {
+        text-align: center;
+    }
+    footer > div:nth-of-type(3) {
+        text-align: right;
+    }
+    footer a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /*Einstellungen Impressum*/
+    .impressum h1 {
+        margin-top: 45px;
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    /*Einstellungen Datenschutz*/
+    .datenschutz h1 {
+        margin-top: 45px;
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    /*Einstellungen Cookies*/
+    #cookiedingsbums { 
+        position: fixed;
+        bottom: 30px;
+        left: 0;
+        z-index: 10000; 
+        background: linear-gradient(rgba(12,38,163,1.00), rgba(146,163,247,1.00));
+        max-width: 400px;
+        filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#d6e0eb', endColorstr='#f2f6f9',GradientType=0 );
+    }
+    #cookiedingsbums > p:first-of-type {
+        color: #fff;
+        padding-right: 40px;
+        line-height: 1.2rem;
+        
+    }
+    #cookiedingsbums > p:nth-of-type(2) {
+        padding-right: 40px;
+        line-height: 1.2rem;
+    }
+    #cookiedingsbums > p > a {
+        color:#fff;
+        text-decoration:none;
+    }
+    #cookiedingsbums > p > a:hover {
+        text-decoration:underline;
+    }
+    #cookiedingsbumsCloser {
+        color: #000;
+        position: absolute;
+        right: 5px;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #fff;
+        top: 5px;
+        cursor:pointer;
+        border-top: 1px solid white; 
+        border-left: 1px solid white; 
+        border-bottom: 1px solid #7b92a9; 
+        border-right: 1px solid #7b92a9;
+        background: rgba(20,233,18,1.00);
+        filter: progid:DXImageTransform.Microsoft.gradient(    startColorstr='#ced6df', endColorstr='#f2f6f9',GradientType=0 ); 
+     }
+    #cookiedingsbumsCloser:hover {
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+        border-top: 1px solid #7b92a9;
+        border-left:1px solid #7b92a9;
+    }
+
+    /* frei Klassen -------------------*/
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .nodesk {
+        display: none;
+    }
+}
+
+/*Animation*/
+@keyframes run {
+    0% {opacity: 1;}
+    24% {transform: translateY(-90%);}
+    50% {transform: translateY(-90%);}
+    75% {transform: translateY(-90%);}
+    99% {transform: translateY(0%);}
+    100% {opacity: 1;}
+}
